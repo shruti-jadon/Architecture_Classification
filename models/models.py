@@ -56,7 +56,7 @@ class model:
         clf = SVC(C=grid[C_score.index(max(C_score))])
         clf.fit(X_train, Y_train)
         y_pred = clf.predict(X_test)
-        print accuracy_score(Y_test, y_pred)
+        print "accuracy is {}".format(accuracy_score(Y_test, y_pred))
 
     def model_KNN(self,X,Y):
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.33, random_state=42)
@@ -65,7 +65,7 @@ class model:
         y_pred = clf.predict(X_test)
         print accuracy_score(Y_test, y_pred)
     def model_randomforest(self,X,Y):
-        print X.shape
+        print "printing data shape {}".format(X.shape)
 
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.1, random_state=42)
         K=1000
@@ -81,7 +81,7 @@ class model:
 
 
 m=model()
-X,Y=m.preprocess_data("/Users/shrutijadon/Desktop/github/Architecture_Classification/Data")
+X,Y=m.preprocess_data("./../Data")
 #m.model_svm(X,Y)
 #m.model_KNN(X,Y)
 m.model_randomforest(X,Y)
